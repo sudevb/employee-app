@@ -49,4 +49,14 @@ public class EmployeeService {
 		return employeeRepository.save(employee);
 		
 	}
+	
+	public void deleteEmployee(Integer id) {
+		Optional<Employee> employee = employeeRepository.findById(id);
+		if (!employee.isPresent())
+			throw new RuntimeException();
+		else {
+			employeeRepository.deleteById(id);
+		}
+		
+	}
 }
